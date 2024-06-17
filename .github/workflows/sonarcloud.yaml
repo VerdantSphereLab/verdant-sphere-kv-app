@@ -18,12 +18,15 @@ jobs:
         with:
           php-version: ${{ inputs.version }}
           cache-key: ${{ github.sha }}-php-vendor-cache
+      - name: Test Keys
+        run: |
+          echo ${{ secrets.SONAR_TOKEN }}
       - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@v2.3.0 # Ex: v2.1.0, See the latest version at https://github.com/marketplace/actions/sonarcloud-scan
+        uses: sonarsource/sonarcloud-github-action@v2.3.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - name: Analyze with SonarCloud
-        uses: sonarsource/sonarcloud-github-action@v2.3.0 # Ex: v2.1.0, See the latest version at https://github.com/marketplace/actions/sonarcloud-scan
+        uses: sonarsource/sonarcloud-github-action@v2.3.0
         with:
           projectBaseDir: ./
           args: >
