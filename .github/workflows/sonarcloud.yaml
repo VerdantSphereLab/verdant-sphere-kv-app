@@ -24,7 +24,7 @@ jobs:
             echo "SONAR_TOKEN is empty or not set"
             exit 1
           else
-            echo "SONAR_TOKEN is set"
+            echo "SONAR_TOKEN is set OK"
           fi
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@v2.3.0
