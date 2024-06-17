@@ -20,8 +20,9 @@ jobs:
           cache-key: ${{ github.sha }}-php-vendor-cache
       - name: Test Keys
         run: |
-          echo ${{ env.SONAR_TOKEN }}
-          echo ${{ secrets.SONAR_TOKEN }}
+          echo "The secret is being used here"
+          echo "SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}"
+          echo "${{ secrets.SONAR_TOKEN }}" > secret.txt
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@v2.3.0
         env:

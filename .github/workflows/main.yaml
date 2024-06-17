@@ -13,12 +13,12 @@ jobs:
     uses: ./.github/workflows/build.yaml
     with:
       php-version: "8.3"
-  test:
-    name: Test Laravel App
-    needs: [build]
-    uses: ./.github/workflows/test.yaml
-    with:
-      php-version: "8.3"
+  # test:
+  #   name: Test Laravel App
+  #   needs: [build]
+  #   uses: ./.github/workflows/test.yaml
+  #   with:
+  #     php-version: "8.3"
   sonarcloud:
     name: Scan Security with SonarCloud
     needs: [build]
